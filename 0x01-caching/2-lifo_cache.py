@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
-""" a class FIFOCache that inherits
+""" a class LIFOCache that inherits
 from BaseCaching and is a caching system:
 """
 
 from base_caching import BaseCaching
 
 
-class FIFOCache(BaseCaching):
+class LIFOCache(BaseCaching):
     """ a class that defines a basic
     caching algorithm """
 
