@@ -45,7 +45,7 @@ class LFUCache(BaseCaching):
     def get(self, key):
         """Retrieve an item from the cache by key.
 
-                        Returns None if the key is not found or if the key is None.
+         Returns None if the key is not found or if the key is None.
                         """
         if key is None or key not in self.cache_data:
             return None
