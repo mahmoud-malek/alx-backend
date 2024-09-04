@@ -38,7 +38,7 @@ class MRUCache(BaseCaching):
     def get(self, key):
         """Retrieve an item from the cache by key.
 
-                        Returns None if the key is not found or if the key is None.
+        Returns None if the key is not found or if the key is None.
                         """
         if key is None:
             return None
