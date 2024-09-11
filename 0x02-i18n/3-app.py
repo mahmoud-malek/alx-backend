@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
 A Basic flask application
+for practicing Babel i18n
 """
+
 from flask import Flask, request, render_template
 from flask_babel import Babel, _, gettext
 from typing import List
@@ -10,6 +12,10 @@ from typing import List
 class Config(object):
     """
     Application configuration class
+    and sets the following:
+    - Babel default locale
+    - Babel default timezone
+    - Babel default locale
     """
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
@@ -24,6 +30,7 @@ app.config.from_object(Config)
 def get_locale() -> str:
     """
     Gets locale from request object
+    and returns the best matching language
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
