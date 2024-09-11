@@ -2,10 +2,9 @@
 """
 A Basic flask application
 """
-from flask import Flask
-from flask import request
-from flask import render_template
-from flask_babel import Babel
+from flask import Flask, request, render_template
+from flask_babel import Babel, _, gettext
+from typing import List
 
 
 class Config(object):
@@ -21,16 +20,16 @@ class Config(object):
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# Wrap the application with Babel
-babel = Babel(app)
 
-
-@babel.localeselector
 def get_locale() -> str:
     """
     Gets locale from request object
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+
+# Wrap the application with Babel
+babel = Babel(app, locale_selector=get_locale)
 
 
 @app.route('/', strict_slashes=False)
